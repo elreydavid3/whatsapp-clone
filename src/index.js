@@ -1,15 +1,15 @@
-import React  from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import reducer, { initialState } from "./reducer"
-import { StateProvider } from './StateProvider'
+import reducer, { initialState } from "./reducer";
+import { StateProvider } from "./StateProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider initialState={initialState} reducer={reducer}>
-    <App />
+      <App />
     </StateProvider>
   </React.StrictMode>,
   document.getElementById("root")
@@ -19,4 +19,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
