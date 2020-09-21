@@ -5,11 +5,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import reducer, { initialState } from "./reducer";
 import { StateProvider } from "./StateProvider";
+import { ThemeProvider } from "./useDarkMode";
 
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider initialState={initialState} reducer={reducer}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </StateProvider>
   </React.StrictMode>,
   document.getElementById("root")

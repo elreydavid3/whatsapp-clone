@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Sidebar.css";
 import { Avatar, IconButton } from "@material-ui/core";
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
@@ -8,10 +8,12 @@ import { SearchOutlined } from "@material-ui/icons";
 import SidebarChat from "./SidebarChat";
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { Context } from "./useDarkMode";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
   const [{ user }, dispatch] = useStateValue();
+  const { theme } = useContext(Context);
 
   useEffect(() => {
     const unsubscribe = db.collection("chat rooms").onSnapshot((snapshot) =>
@@ -29,28 +31,32 @@ function Sidebar() {
   }, []);
 
   return (
-    <div className="sidebar">
-      <div className="sidebar_header">
+    <div className={`sidebar-${theme}`}>
+      <div className={`sidebar_header-${theme}`}>
         <Avatar src={user?.photoURL} />
-        <div className="header_Right">
+        <div className="sidebar_headerRight">
           <IconButton>
-            <DonutLargeIcon />
+            <DonutLargeIcon style={{ color: theme === "dark" && "#b1b3b5" }} />
           </IconButton>
           <IconButton>
-            <ChatIcon />
+            <ChatIcon style={{ color: theme === "dark" && "#b1b3b5" }} />
           </IconButton>
           <IconButton>
-            <MoreVertIcon />
+            <MoreVertIcon style={{ color: theme === "dark" && "#b1b3b5" }} />
           </IconButton>
         </div>
       </div>
-      <div className="sidebar_search">
-        <div className="sidebar_searchContainer">
+      <div className={`sidebar_search-${theme}`}>
+        <div className={`sidebar_searchContainer-${theme}`}>
           <SearchOutlined />
-          <input placeholder="Search or start new chat" type="text" />
+          <input
+            placeholder="Search or start new chat"
+            type="text"
+            style={{ color: theme === "dark" && "#b1b3b5" }}
+          />
         </div>
       </div>
-      <div className="sidebar_chats">
+      <div className={`sidebar_chats-${theme}`}>
         <SidebarChat addNewChat />
         {rooms.map((room) => (
           <SidebarChat key={room.id} id={room.id} name={room.data.name} />

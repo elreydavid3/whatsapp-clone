@@ -1,13 +1,28 @@
-.app {
+.app-light {
   display: grid;
   place-items: center;
   height: 100vh;
   background-color: #dadbd3;
 }
+.app-dark {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: #090e11;
+}
 
-.app_body {
+.app_body-light {
   display: flex;
   background-color: #ededed;
+  margin-top: -50px;
+  height: 90vh;
+  width: 90vw;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+}
+.app_body-dark {
+  display: flex;
+  background-color: #1e2428;
   margin-top: -50px;
   height: 90vh;
   width: 90vw;

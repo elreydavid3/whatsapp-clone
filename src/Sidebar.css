@@ -1,14 +1,34 @@
-.sidebar {
+.sidebar-light {
+  display: flex;
+  flex-direction: column;
+  flex: 0.35;
+}
+.sidebar-dark {
   display: flex;
   flex-direction: column;
   flex: 0.35;
 }
 
-.sidebar_header {
+.sidebar-dark > ::-webkit-scrollbar {
+  width: 6px !important;
+  height: 25px !important;
+}
+
+.sidebar-dark > ::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 100%, 0.16);
+}
+
+.sidebar_header-light {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-right: 1px solid lightgrey;
+}
+.sidebar_header-dark {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid #b1b3b5;
 }
 
 .sidebar_headerRight {
@@ -23,15 +43,22 @@
   font-size: 24px !important;
 }
 
-.sidebar_search {
+.sidebar_search-light {
   display: flex;
   align-items: center;
   background-color: #f6f6f6;
   height: 39px;
   padding: 10px;
 }
+.sidebar_search-dark {
+  display: flex;
+  align-items: center;
+  background-color: #131c21;
+  height: 39px;
+  padding: 10px;
+}
 
-.sidebar_searchContainer {
+.sidebar_searchContainer-light {
   display: flex;
   align-items: center;
   background-color: white;
@@ -39,20 +66,43 @@
   height: 35px;
   border-radius: 20px;
 }
+.sidebar_searchContainer-dark {
+  display: flex;
+  align-items: center;
+  background-color: #323739;
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+}
 
-.sidebar_searchContainer > .MuiSvgIcon-root {
+.sidebar_searchContainer-light > .MuiSvgIcon-root {
+  color: gray;
+  padding: 10px;
+}
+.sidebar_searchContainer-dark > .MuiSvgIcon-root {
   color: gray;
   padding: 10px;
 }
 
-.sidebar_searchContainer > input {
+.sidebar_searchContainer-light > input {
   border: none;
   outline-width: 0;
   margin-left: 10px;
 }
+.sidebar_searchContainer-dark > input {
+  border: none;
+  outline-width: 0;
+  margin-left: 10px;
+  background-color: #323739;
+}
 
-.sidebar_chats {
+.sidebar_chats-light {
   flex: 1;
   background-color: white;
-  overflow: scroll;
+  overflow-y: auto;
+}
+.sidebar_chats-dark {
+  flex: 1;
+  background-color: #131c21;
+  overflow-y: auto;
 }
