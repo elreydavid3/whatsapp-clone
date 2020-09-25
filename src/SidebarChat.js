@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar} from "@material-ui/core";
 import "./SidebarChat.css";
 import db from "./firebase";
 import { Link } from "react-router-dom";
 import { Context } from "./useDarkMode";
-import CloseIcon from "@material-ui/icons/Close";
+
+
 
 function SidebarChat({ addNewChat, id, name }) {
   const [seed, setSeed] = useState("");
   const [messages, setMessages] = useState("");
   const { theme } = useContext(Context);
+  
+  
 
   useEffect(() => {
     if (id) {
@@ -38,15 +41,17 @@ function SidebarChat({ addNewChat, id, name }) {
     }
   };
 
+  
+
   return !addNewChat ? (
     <Link to={`/rooms/${id}`}>
       <div className={`sidebarChat-${theme}`}>
         <Avatar src={`http://avatars.dicebear.com/api/human/${seed}.svg`} />
         <div className={`sidebarChat_info-${theme}`}>
           <span className="delete">
-            <IconButton>
+            {/*will add delete room feature later<IconButton onClick={deleteCollection}>
               <CloseIcon style={{ color: theme === "dark" && "#b1b3b5" }} />
-            </IconButton>
+  </IconButton>*/}
           </span>
           <h2>{name}</h2>
           <p>{messages[0]?.message}</p>

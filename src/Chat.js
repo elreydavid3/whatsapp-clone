@@ -10,15 +10,11 @@ import db from "./firebase";
 import firebase from "firebase";
 import { useStateValue } from "./StateProvider";
 import { Context } from "./useDarkMode";
-import styled from "styled-components";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-const buttondark = styled.div`
-  color: #f1f1f2eb;
-`;
-const buttonlight = styled.div`
-  style: none;
-`;
+
+
+
 
 function Chat() {
   const [seed, setSeed] = useState("");
@@ -26,7 +22,7 @@ function Chat() {
   const { roomId } = useParams();
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   const { theme } = useContext(Context);
 
   useEffect(() => {
@@ -67,6 +63,7 @@ function Chat() {
 
     setInput("");
   };
+  
 
   return (
     <div className={`chat-${theme}`}>
@@ -106,7 +103,14 @@ function Chat() {
             }`}
           >
             <span className="chat_name">{message.name}</span>
-            {message.message}
+            {typeof(message.message) === "string" && message.message }
+            
+            {((message.message).includes("jpg") || (message.message).includes("png") || (message.message).includes('image'))&&
+                 <img src={message.message} alt="whatever" style={{width: '100%', height: 200,resizeMode : 'stretch' }} /> 
+                 
+            }
+          
+            
             <span className="chat_timestamp">
               {new Date(message.timestamp?.toDate()).toUTCString()}
             </span>

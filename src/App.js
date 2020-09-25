@@ -10,7 +10,7 @@ import Brightness4Icon from "@material-ui/icons/Brightness4";
 import { IconButton } from "@material-ui/core";
 
 function App() {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   const { theme, handleClick } = useContext(Context);
 
   return (

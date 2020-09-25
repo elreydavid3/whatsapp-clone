@@ -1,28 +1,30 @@
 .login {
-  background-color: #f8f8f8;
+  background-color: #455A64;
   height: 100vh;
   width: 100vw;
-  display: grid;
-  place-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
 }
-.login_container {
-  padding: 100px;
-  text-align: center;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+.login > .login_text {
+background-color: azure;
 }
-.login_container img {
+.login img {
   object-fit: contain;
-  margin-bottom: 40px;
+  
+
 }
-.login_container button {
-  margin-top: 50px;
+.login button {
   text-transform: inherit !important;
   background-color: #0fb45c;
   color: white;
+  margin-top: 1px
 }
-.login_container button:hover {
+.login button:hover {
   text-transform: inherit !important;
   background-color: #0b9c4f;
   color: white;

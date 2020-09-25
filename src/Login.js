@@ -22,17 +22,13 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="login_container">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png"
+          src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/WhatsApp_Logo_8.png "
           alt=""
+          style={{height: "600px", width: "600px"}}
         />
-        <div className="login_text">
-          <h1>Sign in to WhatsApp</h1>
-        </div>
+        <Button className="button" onClick={signIn}>Sign in With Google</Button>
 
-        <Button onClick={signIn}>Sign in With Google</Button>
-      </div>
     </div>
   );
 }
